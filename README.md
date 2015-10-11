@@ -6,6 +6,12 @@
 
 ## Usage
 
+Install from npm.
+
+```
+npm install --save falcor-electron
+```
+
 Install your `Router` as a data source in the main process.
 
 ```javascript
