@@ -1,4 +1,5 @@
 # falcor-electron
+[![Build Status](https://travis-ci.org/lukewestby/falcor-electron.svg)](https://travis-ci.org/lukewestby/falcor-electron)
 
 [Falcor](https://github.com/Netflix/falcor) integration for
 [electron](https://github.com/atom/electron) using the `ipc` module.
