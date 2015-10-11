@@ -7,7 +7,13 @@ import EventEmitter from 'events';
 function createIpc() {
   const ipc = new EventEmitter();
   ipc.send = function(name, ...args) {
-    ipc.emit(name, { ATOM_EVENT_PLACEHOLDER_DO_NOT_USER: true }, ...args);
+    ipc.emit(name, {
+      sender: {
+        send(name, ...args) {
+          ipc.emit(name, {}, ...args);
+        }
+      }
+    }, ...args);
   };
   return ipc;
 }

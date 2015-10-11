@@ -1,14 +1,16 @@
 import guard from './guard.js';
 
 export default function installIpcHandler(ipc, getDataSource) {
-  function sendResponse(requestId, response) {
-    ipc.send('falcor:response', {
+  function sendResponse(sender, requestId, response) {
+    sender.send('falcor:response', {
       requestId,
       response
     });
   }
 
-  function handleRequest(ev, {
+  function handleRequest({
+    sender
+  }, {
     context,
     requestId
   }) {
@@ -21,7 +23,7 @@ export default function installIpcHandler(ipc, getDataSource) {
     ]);
 
     if (error) {
-      return sendResponse(requestId, { error });
+      return sendResponse(sender, requestId, { error });
     }
 
     const args = guard([
@@ -33,8 +35,8 @@ export default function installIpcHandler(ipc, getDataSource) {
     const observable = dataSource[context.method](...args);
 
     observable.subscribe(
-      (data) => sendResponse(requestId, { data }),
-      (error) => sendResponse(requestId, { error: error.message })
+      (data) => sendResponse(sender, requestId, { data }),
+      (error) => sendResponse(sender, requestId, { error: error.message })
     );
   }
 
