@@ -4,7 +4,7 @@ import createObservable from './createObservable.js';
 function createRequest(ipc, context) {
   return createObservable((observer) => {
     const currentRequestId = uuid.v1();
-    ipc.on('falcor:response', function handle(ev, { requestId, response }) {
+    ipc.on('falcor:response', function handle({ requestId, response }) {
       if (requestId !== currentRequestId) {
         return;
       }

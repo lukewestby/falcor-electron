@@ -10,7 +10,7 @@ function createIpc() {
     ipc.emit(name, {
       sender: {
         send(name, ...args) {
-          ipc.emit(name, {}, ...args);
+          ipc.emit(name, ...args);
         }
       }
     }, ...args);
