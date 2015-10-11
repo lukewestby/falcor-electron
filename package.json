@@ -1,6 +1,6 @@
 {
   "name": "falcor-electron",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "falcor integration for electron's ipc module",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
