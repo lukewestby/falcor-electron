@@ -7,9 +7,9 @@
   "scripts": {
     "clean": "rimraf lib",
     "lint": "eslint src",
-    "test": "babel-node --stage 0 ./node_modules/tape/bin/tape ./test/*.test.js",
+    "test": "babel-node ./node_modules/tape/bin/tape ./test/*.test.js",
     "check": "npm run lint && npm run test",
-    "build": "babel src --stage 0 --out-dir lib",
+    "build": "babel src --out-dir lib",
     "preversion": "npm run clean && npm run check",
     "version": "npm run build",
     "postversion": "git push && git push --tags && npm run clean",
@@ -18,17 +18,20 @@
   "author": "Luke William Westby <lwestby@alumni.nd.edu>",
   "license": "MIT",
   "peerDependencies": {
-    "falcor": "0.1.13",
-    "falcor-router": "0.2.9"
+    "falcor": "0.1.x",
+    "falcor-router": "0.2.x"
   },
   "devDependencies": {
-    "babel": "5.8.23",
-    "babel-eslint": "4.1.3",
+    "babel": "6.0.15",
+    "babel-cli": "6.1.2",
+    "babel-eslint": "4.1.4",
+    "babel-preset-es2015": "6.1.2",
+    "babel-preset-stage-1": "6.1.2",
     "eslint": "1.6.0",
     "eslint-config-airbnb": "0.1.0",
     "eslint-plugin-react": "3.5.1",
-    "falcor": "0.1.13",
-    "falcor-router": "0.2.9",
+    "falcor": "0.1.14",
+    "falcor-router": "0.2.11",
     "rimraf": "2.4.3",
     "tape": "4.2.1"
   },
