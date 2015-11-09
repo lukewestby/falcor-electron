@@ -43,7 +43,10 @@ const model = new Model({
 Feature requests and bugs/bug fixes are happily accepted and can be submitted
 either as issues or pull requests.
 
-- Source is compiled with `babel` (stage 0)
+- Source is compiled with `babel`
+  - Presets:
+    - `es2015`
+    - `stage-1`
 - Source is linted with `eslint`
 - Tests are run with `tape`
 
